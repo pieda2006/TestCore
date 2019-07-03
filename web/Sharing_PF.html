@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <title>Sharing_PF</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="Sharing_PF_files/katex.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9%E5%9B%B3">ユースケース図</h1>
+
+<h2 class="mume-header" id="%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9%E4%B8%80%E8%A6%A7">ユースケース一覧</h2>
+
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="486px" preserveAspectRatio="none" style="width:881px;height:486px;" version="1.1" viewBox="0 0 881 486" width="881px" zoomAndPan="magnify"><defs><filter height="300%" id="f16s6cfo8olj0q" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><!--cluster 権利流通PF--><rect fill="#FFFFFF" filter="url(#f16s6cfo8olj0q)" height="197" style="stroke: #000000; stroke-width: 1.5;" width="686" x="22" y="150"></rect><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="79" x="325.5" y="164.3184">権利流通PF</text><ellipse cx="341.098" cy="212.8995" fill="#FEFECE" filter="url(#f16s6cfo8olj0q)" rx="42.598" ry="12.8995" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="313.098" y="216.3995">権利発行</text><ellipse cx="488.2163" cy="316.0433" fill="#FEFECE" filter="url(#f16s6cfo8olj0q)" rx="63.2163" ry="15.0433" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="98" x="439.2163" y="319.5433">権利利用者変更</text><ellipse cx="509.098" cy="212.8995" fill="#FEFECE" filter="url(#f16s6cfo8olj0q)" rx="42.598" ry="12.8995" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="481.098" y="216.3995">権利分割</text><ellipse cx="347.098" cy="315.8995" fill="#FEFECE" filter="url(#f16s6cfo8olj0q)" rx="42.598" ry="12.8995" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="319.098" y="319.3995">権利削除</text><ellipse cx="638.9975" cy="212.8995" fill="#FEFECE" filter="url(#f16s6cfo8olj0q)" rx="52.4975" ry="12.8995" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="603.9975" y="216.3995">利用者登録</text><ellipse cx="638.9975" cy="315.8995" fill="#FEFECE" filter="url(#f16s6cfo8olj0q)" rx="52.4975" ry="12.8995" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="603.9975" y="319.3995">利用者診断</text><ellipse cx="81.098" cy="212.8995" fill="#FEFECE" filter="url(#f16s6cfo8olj0q)" rx="42.598" ry="12.8995" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="53.098" y="216.3995">価値評価</text><ellipse cx="210.9975" cy="212.8995" fill="#FEFECE" filter="url(#f16s6cfo8olj0q)" rx="52.4975" ry="12.8995" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="175.9975" y="216.3995">発行者登録</text><!--entity 権利発行者--><ellipse cx="251" cy="404" fill="#FEFECE" filter="url(#f16s6cfo8olj0q)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><path d="M251,412 L251,439 M238,420 L264,420 M251,439 L238,454 M251,439 L264,454 " fill="none" filter="url(#f16s6cfo8olj0q)" style="stroke: #A80036; stroke-width: 2.0;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="216" y="473.3184">権利発行者</text><!--entity 権利利用者--><ellipse cx="721" cy="18" fill="#FEFECE" filter="url(#f16s6cfo8olj0q)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><path d="M721,26 L721,53 M708,34 L734,34 M721,53 L708,68 M721,53 L734,68 " fill="none" filter="url(#f16s6cfo8olj0q)" style="stroke: #A80036; stroke-width: 2.0;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="686" y="87.3184">権利利用者</text><!--link 権利分割 to 権利利用者変更--><path d="M505.43,231.169 C501.355,250.77 494.762,282.476 490.96,300.762 " fill="none" id="権利分割-権利利用者変更" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"></path><polygon fill="#A80036" points="506.509,225.983,500.7619,233.9812,505.4919,230.8785,508.5946,235.6085,506.509,225.983" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="41" x="500" y="268.4385">extend</text><!--link 権利発行 to 権利発行者--><path d="M328.899,230.247 C316.805,247.154 298.41,274.776 287,301 C273.923,331.055 264.508,367.049 258.594,393.9313 " fill="none" id="権利発行-権利発行者" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="332.133,225.773,323.6197,230.7251,329.2046,229.8257,330.1039,235.4106,332.133,225.773" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 権利削除 to 権利発行者--><path d="M333.646,333.206 C320.739,348.869 300.678,373.214 283.554,393.9949 " fill="none" id="権利削除-権利発行者" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="337.088,329.029,328.2783,333.4323,333.9089,332.8882,334.453,338.5188,337.088,329.029" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 利用者診断 to 権利発行者--><path d="M621.19,328.325 C607.395,336.681 587.567,347.805 569,355 C472.557,392.3713 352.631,416.2654 291.276,426.9681 " fill="none" id="利用者診断-権利発行者" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="286.242,427.8395,295.7924,430.2457,291.1687,426.9866,294.4278,422.363,286.242,427.8395" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 権利利用者 to 権利利用者変更--><path d="M730.029,89.147 C738.903,139.593 744.783,225.607 695,271 C689.232,276.26 599.871,293.932 540.463,305.215 " fill="none" id="権利利用者-権利利用者変更" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="535.527,306.151,545.1146,308.4045,540.4395,305.2196,543.6244,300.5446,535.527,306.151" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="133" x="736" y="217.9385">権利利用登録,権利譲渡</text><!--link 権利利用者 to 権利分割--><path d="M685.885,54.942 C627.458,64.793 514.375,87.518 491,119 C474.209,141.614 487.942,175.595 498.872,195.612 " fill="none" id="権利利用者-権利分割" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="501.429,200.144,500.4895,190.3401,498.9717,195.7895,493.5223,194.2717,501.429,200.144" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="198" x="492" y="131.4385">部分的権利利用,権利の部分的譲渡</text><!--link 権利利用者 to 利用者登録--><path d="M714.075,89.369 C710.671,103.877 705.798,120.112 699,134 C687.397,157.704 667.95,181.203 654.35,196.112 " fill="none" id="権利利用者-利用者登録" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="650.681,200.083,659.7262,196.1862,654.0738,196.4102,653.8498,190.7578,650.681,200.083" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 利用者登録 to 利用者診断--><path d="M639,231.526 C639,251.92 639,285.061 639,302.83 " fill="none" id="利用者登録-利用者診断" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"></path><polygon fill="#A80036" points="639,226.385,635,235.385,639,231.385,643,235.385,639,226.385" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="46" x="640" y="268.4385">include</text><!--link 権利分割 to 権利発行--><path d="M461.134,213 C436.782,213 407.426,213 383.828,213 " fill="none" id="権利分割-権利発行" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"></path><polygon fill="#A80036" points="466.25,213,457.25,209,461.25,213,457.25,217,466.25,213" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="46" x="402" y="207.4385">include</text><!--link 権利分割 to 権利削除--><path d="M487.009,227.527 C473.682,235.739 456.345,246.445 441,256 C414.176,272.702 383.142,292.218 364.302,304.088 " fill="none" id="権利分割-権利削除" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"></path><polygon fill="#A80036" points="491.367,224.843,481.6061,226.156,487.1094,227.4647,485.8007,232.9681,491.367,224.843" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="46" x="442" y="268.4385">include</text><!--link 価値評価 to 権利発行--><path d="M87.5761,199.926 C96.8581,183.118 115.552,154.704 141,143 C197.53,117 224.47,117 281,143 C304.261,153.699 321.879,178.358 331.824,195.354 " fill="none" id="価値評価-権利発行" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"></path><polygon fill="#A80036" points="334.424,199.926,333.4533,190.1251,331.9528,195.5793,326.4986,194.0789,334.424,199.926" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="46" x="188" y="131.4385">include</text><!--link 価値評価 to 権利発行者--><path d="M90.1399,225.801 C113.665,256.177 177.245,338.269 217.065,389.6844 " fill="none" id="価値評価-権利発行者" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="220.128,393.6389,217.7792,384.0742,217.0662,389.686,211.4545,388.9731,220.128,393.6389" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 発行者登録 to 権利発行者--><path d="M211.139,231.474 C211.695,259.699 214.198,316.918 225,364 C227.276,373.92 230.623,384.3354 234.164,393.9966 " fill="none" id="発行者登録-権利発行者" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="211.052,226.227,207.2043,235.2932,211.1363,231.2263,215.2032,235.1583,211.052,226.227" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--
+@startuml
+skinparam componentStyle uml2
+
+actor 権利発行者
+actor 権利利用者
+
+rectangle 権利流通PF  {
+  usecase 権利発行
+  usecase 権利利用者変更
+  usecase 権利分割
+  usecase 権利削除
+  usecase 利用者登録
+  usecase 利用者診断
+  usecase 価値評価
+  usecase 発行者登録
+}
+権利分割 <.. 権利利用者変更 : extend
+権利発行 <- - 権利発行者
+権利削除 <- - 権利発行者
+利用者診断 -> 権利発行者
+権利利用者 - -> 権利利用者変更 : 権利利用登録,権利譲渡
+権利利用者 - -> 権利分割 : 部分的権利利用,権利の部分的譲渡
+権利利用者 - -> 利用者登録
+利用者登録 <.. 利用者診断 : include
+権利分割 <. 権利発行 : include
+権利分割 <.. 権利削除 : include
+価値評価 .> 権利発行 : include
+価値評価 -> 権利発行者
+発行者登録 <- 権利発行者
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(MIT source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_212-8u212-b03-0ubuntu1.16.04.1-b03
+Operating System: Linux
+OS Version: 4.4.0-154-generic
+Default Encoding: UTF-8
+Language: ja
+Country: JP
+--></g></svg></p><table>
+<thead>
+<tr>
+<th>ユースケース名</th>
+<th>概要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>権利発行</td>
+<td>権利を所有するユーザ又はサービス事業者が権利情報を権利流通PFに登録することにより、権利利用者が権利の利用登録をすることにより権利の利用を可能とする。</td>
+</tr>
+<tr>
+<td>権利利用者変更</td>
+<td>権利利用者が権利を利用可能とするために、権利の利用権の所有者を変更する。</td>
+</tr>
+<tr>
+<td>権利分割</td>
+<td></td>
+</tr>
+<tr>
+<td>権利削除</td>
+<td></td>
+</tr>
+<tr>
+<td>利用者登録</td>
+<td></td>
+</tr>
+<tr>
+<td>利用者診断</td>
+<td></td>
+</tr>
+<tr>
+<td>価値評価</td>
+<td></td>
+</tr>
+<tr>
+<td>発行者登録</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 class="mume-header" id="%E3%82%B3%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E5%9B%B3">コンポーネント図</h1>
+
+<h2 class="mume-header" id="%E3%82%B3%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E4%B8%80%E8%A6%A7">コンポーネント一覧</h2>
+
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="495px" preserveAspectRatio="none" style="width:483px;height:495px;" version="1.1" viewBox="0 0 483 495" width="483px" zoomAndPan="magnify"><defs><filter height="300%" id="f1n2bez90x4siv" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><!--cluster 権利管理サーバ--><rect fill="#FFFFFF" filter="url(#f1n2bez90x4siv)" height="93" style="stroke: #000000; stroke-width: 1.5;" width="267" x="205" y="79"></rect><rect fill="#FFFFFF" height="10" style="stroke: #000000; stroke-width: 1.5;" width="15" x="452" y="84"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="450" y="86"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="450" y="90"></rect><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="103" x="287" y="104.3184">権利管理サーバ</text><!--cluster ユーザ端末--><rect fill="#FFFFFF" filter="url(#f1n2bez90x4siv)" height="197" style="stroke: #000000; stroke-width: 1.5;" width="334" x="22" y="287"></rect><rect fill="#FFFFFF" height="10" style="stroke: #000000; stroke-width: 1.5;" width="15" x="336" y="292"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="334" y="294"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="334" y="298"></rect><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="73" x="152.5" y="312.3184">ユーザ端末</text><!--entity 権利情報--><path d="M380,122.5 C380,112.5 418,112.5 418,112.5 C418,112.5 456,112.5 456,122.5 L456,145.5 C456,155.5 418,155.5 418,155.5 C418,155.5 380,155.5 380,145.5 L380,122.5 " fill="#FEFECE" filter="url(#f1n2bez90x4siv)" style="stroke: #000000; stroke-width: 1.5;"></path><path d="M380,122.5 C380,132.5 418,132.5 418,132.5 C418,132.5 456,132.5 456,122.5 " fill="none" style="stroke: #000000; stroke-width: 1.5;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="390" y="148.8184">権利情報</text><!--entity 権利管理機能--><rect fill="#FEFECE" filter="url(#f1n2bez90x4siv)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="124" x="221" y="112"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="325" y="117"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="323" y="119"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="323" y="123"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="236" y="144.3184">権利管理機能</text><!--entity TSMプロキシ--><rect fill="#FEFECE" filter="url(#f1n2bez90x4siv)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="118" x="222" y="320"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="320" y="325"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="318" y="327"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="318" y="331"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="78" x="237" y="352.3184">TSMプロキシ</text><!--entity UIアプリケーション--><rect fill="#FEFECE" filter="url(#f1n2bez90x4siv)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="149" x="37.5" y="320"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="166.5" y="325"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="164.5" y="327"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="164.5" y="331"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="109" x="52.5" y="352.3184">UIアプリケーション</text><!--entity Applet--><rect fill="#FEFECE" filter="url(#f1n2bez90x4siv)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="84" x="239" y="424"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="303" y="429"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="301" y="431"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="301" y="435"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="44" x="254" y="456.3184">Applet</text><!--entity 権利利用者発行者--><rect fill="#FEFECE" filter="url(#f1n2bez90x4siv)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="152" x="31" y="8"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="163" y="13"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="161" y="15"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="161" y="19"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="112" x="46" y="40.3184">権利利用者発行者</text><!--entity サービス事業者--><rect fill="#FEFECE" filter="url(#f1n2bez90x4siv)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="133" x="218.5" y="8"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="331.5" y="13"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="329.5" y="15"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="329.5" y="19"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="93" x="233.5" y="40.3184">サービス事業者</text><!--entity SPTSM--><rect fill="#FEFECE" filter="url(#f1n2bez90x4siv)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="86" x="238" y="216"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="304" y="221"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="302" y="223"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="302" y="227"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="46" x="253" y="248.3184">SPTSM</text><!--entity MNOTSM--><rect fill="#FEFECE" filter="url(#f1n2bez90x4siv)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="104" x="359" y="216"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="443" y="221"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="441" y="223"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="441" y="227"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="64" x="374" y="248.3184">MNOTSM</text><!--link 権利利用者発行者 to サービス事業者--><path d="M183.137,30 C194.809,30 206.48,30 218.152,30 " fill="none" id="権利利用者発行者-サービス事業者" style="stroke: #A80036; stroke-width: 1.0;"></path><!--link サービス事業者 to 権利管理機能--><path d="M284.586,52.134 C284.242,69.64 283.757,94.394 283.414,111.893 " fill="none" id="サービス事業者-権利管理機能" style="stroke: #A80036; stroke-width: 1.0;"></path><!--link 権利管理機能 to SPTSM--><path d="M282.586,156.134 C282.242,173.64 281.757,198.394 281.414,215.893 " fill="none" id="権利管理機能-SPTSM" style="stroke: #A80036; stroke-width: 1.0;"></path><!--link SPTSM to TSMプロキシ--><path d="M281,260.134 C281,277.64 281,302.394 281,319.893 " fill="none" id="SPTSM-TSMプロキシ" style="stroke: #A80036; stroke-width: 1.0;"></path><!--link MNOTSM to TSMプロキシ--><path d="M384.064,260.134 C361.753,277.64 330.203,302.394 307.902,319.893 " fill="none" id="MNOTSM-TSMプロキシ" style="stroke: #A80036; stroke-width: 1.0;"></path><!--link TSMプロキシ to UIアプリケーション--><path d="M221.999,342 C210.198,342 198.398,342 186.598,342 " fill="none" id="TSMプロキシ-UIアプリケーション" style="stroke: #A80036; stroke-width: 1.0;"></path><!--link 権利利用者発行者 to UIアプリケーション--><path d="M107.344,52.308 C108.259,109.076 110.75,263.485 111.661,319.953 " fill="none" id="権利利用者発行者-UIアプリケーション" style="stroke: #A80036; stroke-width: 1.0;"></path><!--link TSMプロキシ to Applet--><path d="M281,364.134 C281,381.64 281,406.3944 281,423.8926 " fill="none" id="TSMプロキシ-Applet" style="stroke: #A80036; stroke-width: 1.0;"></path><!--
+@startuml
+skinparam componentStyle uml2
+
+component 権利利用者発行者
+component サービス事業者
+component 権利管理サーバ {
+  database 権利情報
+  component 権利管理機能
+}
+component SPTSM
+component MNOTSM
+component ユーザ端末 {
+  component TSMプロキシ
+  component UIアプリケーション
+  component Applet
+}
+
+権利利用者発行者-サービス事業者
+サービス事業者- -権利管理機能
+権利管理機能- -SPTSM
+SPTSM- -TSMプロキシ
+MNOTSM- -TSMプロキシ
+TSMプロキシ-UIアプリケーション
+権利利用者発行者-UIアプリケーション
+TSMプロキシ- -Applet
+
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(MIT source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_212-8u212-b03-0ubuntu1.16.04.1-b03
+Operating System: Linux
+OS Version: 4.4.0-154-generic
+Default Encoding: UTF-8
+Language: ja
+Country: JP
+--></g></svg></p><table>
+<thead>
+<tr>
+<th>コンポーネント名</th>
+<th>機能概要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>権利利用者/発行者</td>
+<td>権利を利用するユーザ、権利を発行するユーザ</td>
+</tr>
+<tr>
+<td>サービス事業者</td>
+<td>権利発行、検索、利用予約のIFを権利利用者、発行者に提供する。</td>
+</tr>
+<tr>
+<td>権利管理サーバ</td>
+<td>権利情報を一元管理する。</td>
+</tr>
+<tr>
+<td>SP-TSM</td>
+<td></td>
+</tr>
+<tr>
+<td>MNO-TSM</td>
+<td></td>
+</tr>
+<tr>
+<td>サービス事業者</td>
+<td></td>
+</tr>
+<tr>
+<td>サービス事業者</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class="mume-header" id="%E6%A8%A9%E5%88%A9%E7%99%BA%E8%A1%8C">権利発行</h2>
+
+<p>権利発行者がサービス事業者のAPIを経由して権利情報を登録する場合。</p>
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="454px" preserveAspectRatio="none" style="width:408px;height:454px;" version="1.1" viewBox="0 0 408 454" width="408px" zoomAndPan="magnify"><defs><filter height="300%" id="fz9rgd3r77v26" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><!--cluster 権利管理サーバ--><rect fill="#FFFFFF" filter="url(#fz9rgd3r77v26)" height="211" style="stroke: #000000; stroke-width: 1.5;" width="209" x="22" y="232"></rect><rect fill="#FFFFFF" height="10" style="stroke: #000000; stroke-width: 1.5;" width="15" x="211" y="237"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="209" y="239"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="209" y="243"></rect><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="103" x="75" y="257.3184">権利管理サーバ</text><!--entity 権利情報--><path d="M62,394 C62,384 100,384 100,384 C100,384 138,384 138,394 L138,417 C138,427 100,427 100,427 C100,427 62,427 62,417 L62,394 " fill="#FEFECE" filter="url(#fz9rgd3r77v26)" style="stroke: #000000; stroke-width: 1.5;"></path><path d="M62,394 C62,404 100,404 100,404 C100,404 138,404 138,394 " fill="none" style="stroke: #000000; stroke-width: 1.5;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="72" y="420.3184">権利情報</text><!--entity 権利管理機能--><rect fill="#FEFECE" filter="url(#fz9rgd3r77v26)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="124" x="38" y="265"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="142" y="270"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="140" y="272"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="140" y="276"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="53" y="297.3184">権利管理機能</text><!--entity 002--><ellipse cx="206" cy="287" fill="#FEFECE" filter="url(#fz9rgd3r77v26)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="27" x="192.5" y="316.3184">002</text><!--entity 権利利用者発行者--><rect fill="#FEFECE" filter="url(#fz9rgd3r77v26)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="152" x="241" y="8"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="373" y="13"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="371" y="15"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="371" y="19"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="112" x="256" y="40.3184">権利利用者発行者</text><!--entity サービス事業者--><rect fill="#FEFECE" filter="url(#fz9rgd3r77v26)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="133" x="139.5" y="127"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="252.5" y="132"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="250.5" y="134"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="250.5" y="138"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="93" x="154.5" y="159.3184">サービス事業者</text><!--entity 001--><ellipse cx="317" cy="149" fill="#FEFECE" filter="url(#fz9rgd3r77v26)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="27" x="303.5" y="178.3184">001</text><!--link サービス事業者 to 001--><path d="M272.773,149 C284.406,149 296.038,149 307.671,149 " fill="none" id="サービス事業者-001" style="stroke: #A80036; stroke-width: 1.0;"></path><!--link 権利管理機能 to 002--><path d="M162.109,287 C173.654,287 185.198,287 196.742,287 " fill="none" id="権利管理機能-002" style="stroke: #A80036; stroke-width: 1.0;"></path><!--link 権利利用者発行者 to 001--><path d="M317,52.188 C317,76.145 317,114.429 317,134.586 " fill="none" id="権利利用者発行者-001" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"></path><polygon fill="#A80036" points="317,139.763,321,130.763,317,134.763,313,130.763,317,139.763" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="318" y="94.4385">権利情報登録</text><!--link サービス事業者 to 002--><path d="M206,171.25 C206,199.607 206,248.985 206,272.632 " fill="none" id="サービス事業者-002" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"></path><polygon fill="#A80036" points="206,277.799,210,268.799,206,272.799,202,268.799,206,277.799" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="207" y="213.4385">権利情報登録</text><!--link 権利管理機能 to 権利情報--><path d="M100,309.097 C100,328.682 100,357.885 100,378.8178 " fill="none" id="権利管理機能-権利情報" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="100,383.9508,104,374.9508,100,378.9508,96,374.9508,100,383.9508" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="101" y="351.4385">権利情報登録</text><!--
+@startuml
+skinparam componentStyle uml2
+
+component 権利利用者発行者
+
+component サービス事業者
+サービス事業者 - () 001
+
+
+
+component 権利管理サーバ {
+  database 権利情報
+  component 権利管理機能
+  権利管理機能 - () 002
+}
+
+権利利用者発行者 ..> 001 : 権利情報登録
+サービス事業者 ..> 002 : 権利情報登録
+権利管理機能 - -> 権利情報 : 権利情報登録
+
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(MIT source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_212-8u212-b03-0ubuntu1.16.04.1-b03
+Operating System: Linux
+OS Version: 4.4.0-154-generic
+Default Encoding: UTF-8
+Language: ja
+Country: JP
+--></g></svg></p><p>権利発行者が自端末のUIアプリケーションのAPIを経由して権利情報を登録する場合。</p>
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="713px" preserveAspectRatio="none" style="width:517px;height:713px;" version="1.1" viewBox="0 0 517 713" width="517px" zoomAndPan="magnify"><defs><filter height="300%" id="f1p01cldxv1ufh" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><!--cluster ユーザ端末--><rect fill="#FFFFFF" filter="url(#f1p01cldxv1ufh)" height="212" style="stroke: #000000; stroke-width: 1.5;" width="233" x="218" y="113"></rect><rect fill="#FFFFFF" height="10" style="stroke: #000000; stroke-width: 1.5;" width="15" x="431" y="118"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="429" y="120"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="429" y="124"></rect><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="73" x="298" y="138.3184">ユーザ端末</text><!--cluster 権利管理サーバ--><rect fill="#FFFFFF" filter="url(#f1p01cldxv1ufh)" height="211" style="stroke: #000000; stroke-width: 1.5;" width="209" x="22" y="491"></rect><rect fill="#FFFFFF" height="10" style="stroke: #000000; stroke-width: 1.5;" width="15" x="211" y="496"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="209" y="498"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="209" y="502"></rect><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="103" x="75" y="516.3184">権利管理サーバ</text><!--entity TSMプロキシ--><rect fill="#FEFECE" filter="url(#f1p01cldxv1ufh)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="118" x="234" y="265"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="332" y="270"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="330" y="272"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="330" y="276"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="78" x="249" y="297.3184">TSMプロキシ</text><!--entity 004--><ellipse cx="396" cy="287" fill="#FEFECE" filter="url(#f1p01cldxv1ufh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="27" x="382.5" y="316.3184">004</text><!--entity UIアプリケーション--><rect fill="#FEFECE" filter="url(#f1p01cldxv1ufh)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="149" x="233.5" y="146"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="362.5" y="151"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="360.5" y="153"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="360.5" y="157"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="109" x="248.5" y="178.3184">UIアプリケーション</text><!--entity 003--><ellipse cx="426" cy="168" fill="#FEFECE" filter="url(#f1p01cldxv1ufh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="27" x="412.5" y="197.3184">003</text><!--entity 権利情報--><path d="M62,653 C62,643 100,643 100,643 C100,643 138,643 138,653 L138,676 C138,686 100,686 100,686 C100,686 62,686 62,676 L62,653 " fill="#FEFECE" filter="url(#f1p01cldxv1ufh)" style="stroke: #000000; stroke-width: 1.5;"></path><path d="M62,653 C62,663 100,663 100,663 C100,663 138,663 138,653 " fill="none" style="stroke: #000000; stroke-width: 1.5;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="72" y="679.3184">権利情報</text><!--entity 権利管理機能--><rect fill="#FEFECE" filter="url(#f1p01cldxv1ufh)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="124" x="38" y="524"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="142" y="529"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="140" y="531"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="140" y="535"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="53" y="556.3184">権利管理機能</text><!--entity 002--><ellipse cx="206" cy="546" fill="#FEFECE" filter="url(#f1p01cldxv1ufh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="27" x="192.5" y="575.3184">002</text><!--entity 権利利用者発行者--><rect fill="#FEFECE" filter="url(#f1p01cldxv1ufh)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="152" x="350" y="8"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="482" y="13"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="480" y="15"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="480" y="19"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="112" x="365" y="40.3184">権利利用者発行者</text><!--entity SPTSM--><rect fill="#FEFECE" filter="url(#f1p01cldxv1ufh)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="86" x="163" y="386"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="229" y="391"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="227" y="393"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="227" y="397"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="46" x="178" y="418.3184">SPTSM</text><!--entity 005--><ellipse cx="293" cy="408" fill="#FEFECE" filter="url(#f1p01cldxv1ufh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="27" x="279.5" y="437.3184">005</text><!--link TSMプロキシ to 004--><path d="M352.145,287 C363.679,287 375.214,287 386.749,287 " fill="none" id="TSMプロキシ-004" style="stroke: #A80036; stroke-width: 1.0;"></path><!--link UIアプリケーション to 003--><path d="M382.672,168 C394.068,168 405.464,168 416.86,168 " fill="none" id="UIアプリケーション-003" style="stroke: #A80036; stroke-width: 1.0;"></path><!--link SPTSM to 005--><path d="M249.16,408 C260.691,408 272.222,408 283.753,408 " fill="none" id="SPTSM-005" style="stroke: #A80036; stroke-width: 1.0;"></path><!--link 権利管理機能 to 002--><path d="M162.109,546 C173.654,546 185.198,546 196.742,546 " fill="none" id="権利管理機能-002" style="stroke: #A80036; stroke-width: 1.0;"></path><!--link 権利利用者発行者 to 003--><path d="M426,52.25 C426,80.607 426,129.985 426,153.632 " fill="none" id="権利利用者発行者-003" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"></path><polygon fill="#A80036" points="426,158.799,430,149.799,426,153.799,422,149.799,426,158.799" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="427" y="94.4385">権利情報登録</text><!--link UIアプリケーション to 004--><path d="M323.936,190.188 C342.263,214.554 371.738,253.742 386.676,273.603 " fill="none" id="UIアプリケーション-004" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"></path><polygon fill="#A80036" points="389.805,277.763,387.5913,268.1662,386.7993,273.7673,381.1982,272.9753,389.805,277.763" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="359" y="232.4385">権利情報登録</text><!--link TSMプロキシ to 005--><path d="M293,309.001 C293,333.501 293,373.263 293,393.796 " fill="none" id="TSMプロキシ-005" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"></path><polygon fill="#A80036" points="293,398.815,297,389.815,293,393.815,289,389.815,293,398.815" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="294" y="353.4385">権利情報登録</text><!--link SPTSM to 002--><path d="M206,430.25 C206,458.607 206,507.985 206,531.632 " fill="none" id="SPTSM-002" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"></path><polygon fill="#A80036" points="206,536.799,210,527.799,206,531.799,202,527.799,206,536.799" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="207" y="472.4385">権利情報登録</text><!--link 権利管理機能 to 権利情報--><path d="M100,568.097 C100,587.682 100,616.885 100,637.8178 " fill="none" id="権利管理機能-権利情報" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="100,642.9508,104,633.9508,100,637.9508,96,633.9508,100,642.9508" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="101" y="610.4385">権利情報登録</text><!--
+@startuml
+skinparam componentStyle uml2
+
+component 権利利用者発行者
+component ユーザ端末 {
+  component TSMプロキシ
+  TSMプロキシ - () 004
+  component UIアプリケーション
+  UIアプリケーション - () 003
+}
+component SPTSM
+SPTSM - () 005
+component 権利管理サーバ {
+  database 権利情報
+  component 権利管理機能
+  権利管理機能 - () 002
+}
+権利利用者発行者 ..> 003 : 権利情報登録
+UIアプリケーション ..> 004 : 権利情報登録
+TSMプロキシ ..> 005 : 権利情報登録
+SPTSM ..> 002 : 権利情報登録
+権利管理機能 - -> 権利情報 : 権利情報登録
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(MIT source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_212-8u212-b03-0ubuntu1.16.04.1-b03
+Operating System: Linux
+OS Version: 4.4.0-154-generic
+Default Encoding: UTF-8
+Language: ja
+Country: JP
+--></g></svg></p><h2 class="mume-header" id="if%E4%B8%80%E8%A6%A7">IF一覧</h2>
+
+<table>
+<thead>
+<tr>
+<th>IF通番</th>
+<th>IF保有CP</th>
+<th>IF利用CP</th>
+<th>プロトコル</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001</td>
+<td>サービス事業者</td>
+<td>権利利用者発行者</td>
+<td>HTML(REST)</td>
+<td>権利発行,変更,削除,検索</td>
+</tr>
+<tr>
+<td>002</td>
+<td>権利管理サーバ</td>
+<td>サービス事業者<br>SP TSM</td>
+<td>HTML(REST)</td>
+<td>権利発行,変更,削除,検索</td>
+</tr>
+<tr>
+<td>003</td>
+<td>UIアプリケーション</td>
+<td>権利利用者発行者</td>
+<td>GUI</td>
+<td>権利発行,検索,利用登録</td>
+</tr>
+<tr>
+<td>004</td>
+<td>TSMプロキシ</td>
+<td>UIアプリケーション</td>
+<td>HTML(REST)</td>
+<td>HTML(REST)プロキシ</td>
+</tr>
+<tr>
+<td>005</td>
+<td>SP TSM</td>
+<td>TSMプロキシ</td>
+<td>HTML(REST)</td>
+<td>権利発行,変更,削除,検索</td>
+</tr>
+</tbody>
+</table>
+<h1 class="mume-header" id="%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3">シーケンス図</h1>
+
+<h2 class="mume-header" id="%E6%A8%A9%E5%88%A9%E7%99%BA%E8%A1%8C%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E4%BA%8B%E6%A5%AD%E8%80%85%E7%B5%8C%E7%94%B1">権利発行(サービス事業者経由)</h2>
+
+<ul>
+<li>処理概要<br>
+権利所有者がサービス事業者を経由して権利を発行する。</li>
+</ul>
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="402px" preserveAspectRatio="none" style="width:382px;height:402px;" version="1.1" viewBox="0 0 382 402" width="382px" zoomAndPan="magnify"><defs><filter height="300%" id="f3f9buf38su5n" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><rect fill="#FFFFFF" filter="url(#f3f9buf38su5n)" height="300" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="62" y="46"></rect><rect fill="#FFFFFF" filter="url(#f3f9buf38su5n)" height="281" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="171.5" y="65"></rect><rect fill="#FFFFFF" filter="url(#f3f9buf38su5n)" height="171" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="288" y="92"></rect><rect fill="#FFFFFF" filter="url(#f3f9buf38su5n)" height="42" style="stroke: #000000; stroke-width: 2.0;" width="243" x="111" y="151"></rect><rect fill="#FFFFFF" filter="url(#f3f9buf38su5n)" height="42" style="stroke: #000000; stroke-width: 2.0;" width="229" x="13" y="278"></rect><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="67" x2="67" y1="36" y2="364"></line><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="176" x2="176" y1="36" y2="364"></line><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="293" x2="293" y1="36" y2="364"></line><rect fill="#FEFECE" filter="url(#f3f9buf38su5n)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="84" x="23" y="3"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="30" y="22.3184">権利発行者</text><rect fill="#FEFECE" filter="url(#f3f9buf38su5n)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="84" x="23" y="363"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="30" y="382.3184">権利発行者</text><rect fill="#FEFECE" filter="url(#f3f9buf38su5n)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="107" x="121" y="3"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="93" x="128" y="22.3184">サービス事業者</text><rect fill="#FEFECE" filter="url(#f3f9buf38su5n)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="107" x="121" y="363"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="93" x="128" y="382.3184">サービス事業者</text><rect fill="#FEFECE" filter="url(#f3f9buf38su5n)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="98" x="242" y="3"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="249" y="22.3184">権利管理機能</text><rect fill="#FEFECE" filter="url(#f3f9buf38su5n)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="98" x="242" y="363"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="249" y="382.3184">権利管理機能</text><rect fill="#FFFFFF" filter="url(#f3f9buf38su5n)" height="300" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="62" y="46"></rect><rect fill="#FFFFFF" filter="url(#f3f9buf38su5n)" height="281" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="171.5" y="65"></rect><rect fill="#FFFFFF" filter="url(#f3f9buf38su5n)" height="171" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="288" y="92"></rect><polygon fill="#A80036" points="159.5,61,169.5,65,159.5,69,163.5,65" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.0;" x1="72" x2="165.5" y1="65" y2="65"></line><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="79" y="61.4385">権利情報登録</text><polygon fill="#A80036" points="276,88,286,92,276,96,280,92" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.0;" x1="181.5" x2="282" y1="92" y2="92"></line><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="188.5" y="88.4385">権利情報登録</text><rect fill="#FFFFFF" filter="url(#f3f9buf38su5n)" height="34" style="stroke: #A80036; stroke-width: 1.0;" width="135" x="225" y="105"></rect><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="127" x="229" y="120.4385">通知された権利情報の</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="229" y="133.4385">内容をチェック</text><path d="M111,151 L175,151 L175,156 L165,166 L111,166 L111,151 " fill="#EEEEEE" style="stroke: #000000; stroke-width: 1.0;"></path><rect fill="none" height="42" style="stroke: #000000; stroke-width: 2.0;" width="243" x="111" y="151"></rect><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="19" x="126" y="163.4385">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="58" x="190" y="162.6787">[チェックNG]</text><polygon fill="#A80036" points="192.5,181,182.5,185,192.5,189,188.5,185" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="186.5" x2="287" y1="185" y2="185"></line><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="46" x="198.5" y="181.4385">登録NG</text><rect fill="#FFFFFF" filter="url(#f3f9buf38su5n)" height="34" style="stroke: #A80036; stroke-width: 1.0;" width="156" x="215" y="205"></rect><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="125" x="219" y="220.4385">通知された権利情報を</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="148" x="219" y="233.4385">権利情報Databaseへ登録</text><polygon fill="#A80036" points="192.5,259,182.5,263,192.5,267,188.5,263" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="186.5" x2="292" y1="263" y2="263"></line><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="44" x="198.5" y="259.4385">登録OK</text><path d="M13,278 L77,278 L77,283 L67,293 L13,293 L13,278 " fill="#EEEEEE" style="stroke: #000000; stroke-width: 1.0;"></path><rect fill="none" height="42" style="stroke: #000000; stroke-width: 2.0;" width="229" x="13" y="278"></rect><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="19" x="28" y="290.4385">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="44" x="92" y="289.6787">[登録NG]</text><polygon fill="#A80036" points="83,308,73,312,83,316,79,312" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="77" x2="170.5" y1="312" y2="312"></line><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="46" x="89" y="308.4385">登録NG</text><polygon fill="#A80036" points="78,342,68,346,78,350,74,346" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="72" x2="175.5" y1="346" y2="346"></line><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="44" x="84" y="342.4385">登録OK</text><!--
+@startuml
+skinparam componentStyle uml2
+activate 権利発行者
+権利発行者->サービス事業者 : 権利情報登録
+  activate サービス事業者
+  サービス事業者-> 権利管理機能 : 権利情報登録
+    activate 権利管理機能
+    rnote over 権利管理機能 #white
+      通知された権利情報の
+      内容をチェック
+    end rnote
+    alt チェックNG
+      サービス事業者 <- - 権利管理機能 : 登録NG
+    end
+    rnote over 権利管理機能 #white
+      通知された権利情報を
+      権利情報Databaseへ登録
+    end rnote
+    サービス事業者 <- - 権利管理機能 : 登録OK
+    deactivate 権利管理機能
+    alt 登録NG
+      権利発行者<- -サービス事業者 : 登録NG
+    end
+  権利発行者<- -サービス事業者 : 登録OK
+  deactivate サービス事業者
+deactivate 権利発行者
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(MIT source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_212-8u212-b03-0ubuntu1.16.04.1-b03
+Operating System: Linux
+OS Version: 4.4.0-154-generic
+Default Encoding: UTF-8
+Language: ja
+Country: JP
+--></g></svg></p><h2 class="mume-header" id="%E6%A8%A9%E5%88%A9%E7%99%BA%E8%A1%8Cui%E3%82%A2%E3%83%97%E3%83%AA%E7%B5%8C%E7%94%B1">権利発行(UIアプリ経由)</h2>
+
+<ul>
+<li>処理概要<br>
+権利所有者がUIアプリを使用して権利を発行する。</li>
+</ul>
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="122px" preserveAspectRatio="none" style="width:240px;height:122px;" version="1.1" viewBox="0 0 240 122" width="240px" zoomAndPan="magnify"><defs><filter height="300%" id="f1xxw4kze5rlf6" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><rect fill="#FFFFFF" filter="url(#f1xxw4kze5rlf6)" height="20" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="47" y="46"></rect><rect fill="#FFFFFF" filter="url(#f1xxw4kze5rlf6)" height="14" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="164.5" y="52"></rect><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="52" x2="52" y1="36" y2="84"></line><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="169" x2="169" y1="36" y2="84"></line><rect fill="#FEFECE" filter="url(#f1xxw4kze5rlf6)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="84" x="8" y="3"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="15" y="22.3184">権利発行者</text><rect fill="#FEFECE" filter="url(#f1xxw4kze5rlf6)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="84" x="8" y="83"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="15" y="102.3184">権利発行者</text><rect fill="#FEFECE" filter="url(#f1xxw4kze5rlf6)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="123" x="106" y="3"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="109" x="113" y="22.3184">UIアプリケーション</text><rect fill="#FEFECE" filter="url(#f1xxw4kze5rlf6)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="123" x="106" y="83"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="109" x="113" y="102.3184">UIアプリケーション</text><rect fill="#FFFFFF" filter="url(#f1xxw4kze5rlf6)" height="20" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="47" y="46"></rect><rect fill="#FFFFFF" filter="url(#f1xxw4kze5rlf6)" height="14" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="164.5" y="52"></rect><polygon fill="#A80036" points="152.5,48,162.5,52,152.5,56,156.5,52" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.0;" x1="57" x2="158.5" y1="52" y2="52"></line><polygon fill="#A80036" points="63,62,53,66,63,70,59,66" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="57" x2="168.5" y1="66" y2="66"></line><!--
+@startuml
+skinparam componentStyle uml2
+activate 権利発行者
+権利発行者 -> UIアプリケーション
+  activate UIアプリケーション
+  権利発行者 <- - UIアプリケーション
+  deactivate UIアプリケーション
+deactivate 権利発行者
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(MIT source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_212-8u212-b03-0ubuntu1.16.04.1-b03
+Operating System: Linux
+OS Version: 4.4.0-154-generic
+Default Encoding: UTF-8
+Language: ja
+Country: JP
+--></g></svg></p><h2 class="mume-header" id="%E6%A4%9C%E8%A8%8E%E4%BA%8B%E9%A0%85">検討事項</h2>
+
+<ol>
+<li>権利情報のマスターをUICCに持つかそれとも権利管理サーバに持つか。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>機能性</th>
+<th>信頼性</th>
+<th>使用性</th>
+<th>効率性</th>
+<th>保守性</th>
+<th>移植性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UICCに権利情報保持</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>権利管理サーバに権利情報保持</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>aaa</li>
+</ol>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
