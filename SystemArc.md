@@ -178,20 +178,40 @@ deactivate User
 | Action | 条件1 | 条件2 | 条件3 | 条件4 | 条件5 |
 |---|---|---|---|---|---|
 |Action1 | ○ |-|-|-|-|
-|Action2 |○|-|○|-|○|
+|Action2 |○|-|○|-|×|
 |Action3 |-|-|○|×|-|
 |Action4 |-|-|-|×|×|
 |Action5 |-|-|-|○|○|
 
 ```
 {
-  DecideCondition : [
-    1, 3, 4, 5
-  ],
   DecideAction : [
-    Condition : [
-
-    ]
+    {
+      ActionID : 1,
+      Condition : [
+        {
+          ConditionID : 1,
+          Bool : true
+        }
+      ]
+    },
+    {
+      ActionID : 2,
+      Condition : [
+        {
+          ConditionID : 1
+          bool : true
+        },
+        {
+          ConditionID : 3
+          bool : true
+        },
+        {
+          ConditionID : 5
+          bool : false
+        }
+      ]
+    }
   ]
 }
 ```
