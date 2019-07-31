@@ -848,3 +848,4 @@ We expect that governments will continue to increase oversight of public ledgers
 
 # 参考文献
 - [【仕組み解説】ハッシュグラフ: ブロックチェーンを超える最新技術](https://note.mu/tech_entame/n/n6b82ee227cc3)
+- [Hedera Hashgraphのコンセンサスアルゴリズム詳解](https://qiita.com/rinrin0108/items/ecd7399ea19bb03b1135)

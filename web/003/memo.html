@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <title>memo</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="memo_files/katex.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h2 class="mume-header" id="%E7%89%B9%E8%A8%B1%E3%81%AE%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E6%A7%8B%E6%88%90%E5%9B%B3">特許のシステム構成図</h2>
+
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="718px" preserveAspectRatio="none" style="width:1384px;height:718px;" version="1.1" viewBox="0 0 1384 718" width="1384px" zoomAndPan="magnify"><defs><filter height="300%" id="f7q5p1clmno7z" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><!--cluster 第一ノード(UDF相当)--><rect fill="#FFFFFF" filter="url(#f7q5p1clmno7z)" height="189" style="stroke: #000000; stroke-width: 1.5;" width="462" x="911" y="164.5"></rect><rect fill="#FFFFFF" height="10" style="stroke: #000000; stroke-width: 1.5;" width="15" x="1353" y="169.5"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="1351" y="171.5"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="1351" y="175.5"></rect><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="141" x="1071.5" y="189.8184">第一ノード(UDF相当)</text><!--cluster 第一格納部--><rect fill="#FFFFFF" filter="url(#f7q5p1clmno7z)" height="108" style="stroke: #000000; stroke-width: 1.5;" width="171" x="1170" y="213.5"></rect><rect fill="#FFFFFF" height="10" style="stroke: #000000; stroke-width: 1.5;" width="15" x="1321" y="218.5"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="1319" y="220.5"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="1319" y="224.5"></rect><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="75" x="1218" y="238.8184">第一格納部</text><!--cluster 第二ネットワーク(LTEネットワーク相当)--><rect fill="#FFFFFF" filter="url(#f7q5p1clmno7z)" height="93" style="stroke: #000000; stroke-width: 1.5;" width="402" x="22" y="24.5"></rect><rect fill="#FFFFFF" height="10" style="stroke: #000000; stroke-width: 1.5;" width="15" x="404" y="29.5"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="402" y="31.5"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="402" y="35.5"></rect><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="248" x="99" y="49.8184">第二ネットワーク(LTEネットワーク相当)</text><!--cluster 第二ノード(NSSF相当)--><rect fill="#FFFFFF" filter="url(#f7q5p1clmno7z)" height="293.5" style="stroke: #000000; stroke-width: 1.5;" width="668" x="585" y="413.5"></rect><rect fill="#FFFFFF" height="10" style="stroke: #000000; stroke-width: 1.5;" width="15" x="1233" y="418.5"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="1231" y="420.5"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="1231" y="424.5"></rect><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="148" x="845" y="438.8184">第二ノード(NSSF相当)</text><!--cluster 第二格納部--><rect fill="#FFFFFF" filter="url(#f7q5p1clmno7z)" height="212.5" style="stroke: #000000; stroke-width: 1.5;" width="310" x="911" y="462.5"></rect><rect fill="#FFFFFF" height="10" style="stroke: #000000; stroke-width: 1.5;" width="15" x="1201" y="467.5"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="1199" y="469.5"></rect><rect fill="#FFFFFF" height="2" style="stroke: #000000; stroke-width: 1.5;" width="4" x="1199" y="473.5"></rect><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="75" x="1028.5" y="487.8184">第二格納部</text><!--entity 第一送信部--><rect fill="#FEFECE" filter="url(#f7q5p1clmno7z)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="110" x="927" y="254"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="1017" y="259"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="1015" y="261"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="1015" y="265"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="942" y="286.3184">第一送信部</text><!--entity 第一特定情報--><path d="M1213,264.5 C1213,254.5 1265,254.5 1265,254.5 C1265,254.5 1317,254.5 1317,264.5 L1317,287.5 C1317,297.5 1265,297.5 1265,297.5 C1265,297.5 1213,297.5 1213,287.5 L1213,264.5 " fill="#FEFECE" filter="url(#f7q5p1clmno7z)" style="stroke: #000000; stroke-width: 1.5;"></path><path d="M1213,264.5 C1213,274.5 1265,274.5 1265,274.5 C1265,274.5 1317,274.5 1317,264.5 " fill="none" style="stroke: #000000; stroke-width: 1.5;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="1223" y="290.8184">第一特定情報</text><!--entity 第二スライス1--><rect fill="#FEFECE" filter="url(#f7q5p1clmno7z)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="167" x="241.5" y="57.5"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="388.5" y="62.5"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="386.5" y="64.5"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="386.5" y="68.5"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="127" x="256.5" y="89.8184">ネットワークスライス1</text><!--entity 第二スライス2--><rect fill="#FEFECE" filter="url(#f7q5p1clmno7z)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="169" x="37.5" y="57.5"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="186.5" y="62.5"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="184.5" y="64.5"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="184.5" y="68.5"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="129" x="52.5" y="89.8184">ネットワークスライスN</text><!--entity 第二送信部--><rect fill="#FEFECE" filter="url(#f7q5p1clmno7z)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="110" x="601" y="503"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="691" y="508"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="689" y="510"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="689" y="514"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="616" y="535.3184">第二送信部</text><!--entity 第二特定情報--><path d="M954,513.5 C954,503.5 1006,503.5 1006,503.5 C1006,503.5 1058,503.5 1058,513.5 L1058,536.5 C1058,546.5 1006,546.5 1006,546.5 C1006,546.5 954,546.5 954,536.5 L954,513.5 " fill="#FEFECE" filter="url(#f7q5p1clmno7z)" style="stroke: #000000; stroke-width: 1.5;"></path><path d="M954,513.5 C954,523.5 1006,523.5 1006,523.5 C1006,523.5 1058,523.5 1058,513.5 " fill="none" style="stroke: #000000; stroke-width: 1.5;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="964" y="539.8184">第二特定情報</text><!--entity 第三特定情報--><path d="M1093,513.5 C1093,503.5 1145,503.5 1145,503.5 C1145,503.5 1197,503.5 1197,513.5 L1197,536.5 C1197,546.5 1145,546.5 1145,546.5 C1145,546.5 1093,546.5 1093,536.5 L1093,513.5 " fill="#FEFECE" filter="url(#f7q5p1clmno7z)" style="stroke: #000000; stroke-width: 1.5;"></path><path d="M1093,513.5 C1093,523.5 1145,523.5 1145,523.5 C1145,523.5 1197,523.5 1197,513.5 " fill="none" style="stroke: #000000; stroke-width: 1.5;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="1103" y="539.8184">第三特定情報</text><!--entity 第二第三情報の対応付け--><path d="M954.5,618 C954.5,608 1041,608 1041,608 C1041,608 1127.5,608 1127.5,618 L1127.5,641 C1127.5,651 1041,651 1041,651 C1041,651 954.5,651 954.5,641 L954.5,618 " fill="#FEFECE" filter="url(#f7q5p1clmno7z)" style="stroke: #000000; stroke-width: 1.5;"></path><path d="M954.5,618 C954.5,628 1041,628 1041,628 C1041,628 1127.5,628 1127.5,618 " fill="none" style="stroke: #000000; stroke-width: 1.5;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="153" x="964.5" y="644.3184">第二第三情報の対応付け</text><!--entity 携帯端末--><rect fill="#FEFECE" filter="url(#f7q5p1clmno7z)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="96" x="277" y="254"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="353" y="259"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="351" y="261"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="351" y="265"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="292" y="286.3184">携帯端末</text><!--entity 第一ネットワーク_5Gネットワーク相当--><rect fill="#FEFECE" filter="url(#f7q5p1clmno7z)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="261" x="525.5" y="254"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="766.5" y="259"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="764.5" y="261"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="764.5" y="265"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="221" x="540.5" y="286.3184">第一ネットワーク_5Gネットワーク相当</text><!--entity 第一スライス1--><rect fill="#FEFECE" filter="url(#f7q5p1clmno7z)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="167" x="507.5" y="57.5"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="654.5" y="62.5"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="652.5" y="64.5"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="652.5" y="68.5"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="127" x="522.5" y="89.8184">ネットワークスライス1</text><!--entity 第一スライス2--><rect fill="#FEFECE" filter="url(#f7q5p1clmno7z)" height="44" style="stroke: #A80036; stroke-width: 1.5;" width="169" x="709.5" y="57.5"></rect><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="858.5" y="62.5"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="856.5" y="64.5"></rect><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="856.5" y="68.5"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="129" x="724.5" y="89.8184">ネットワークスライスN</text><!--link 携帯端末 to 第一ネットワーク_5Gネットワーク相当--><path d="M373.13,276 C411.778,276 468.019,276 520.19,276 " fill="none" id="携帯端末-第一ネットワーク_5Gネットワーク相当" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="525.226,276,516.226,272,520.226,276,516.226,280,525.226,276" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="115" x="391.75" y="257.4385">ネットワーク接続処理</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="116" x="391.25" y="270.4385">R:第一第三特定情報</text><!--link 第一ネットワーク_5Gネットワーク相当 to 第一送信部--><path d="M786.718,276 C833.508,276 883.995,276 921.911,276 " fill="none" id="第一ネットワーク_5Gネットワーク相当-第一送信部" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="926.941,276,917.941,272,921.941,276,917.941,280,926.941,276" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="804.75" y="270.4385">第一特定情報取得</text><!--link 第一送信部 to 第一格納部--><path d="M1037.12,276 C1064.745,276 1098.035,276 1125.3162,276 C1138.9569,276 1151.0953,276 1160.2723,276 C1162.5666,276 1164.6758,276 1166.5771,276 C1167.5277,276 1168.4264,276 1169.2702,276 C1169.4812,276 1169.6887,276 1169.8928,276 " fill="none" id="第一送信部-第一格納部" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="1169.8928,276,1160.8928,272,1164.8928,276,1160.8928,280,1169.8928,276" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="1055.32" y="270.4385">第一特定情報取得</text><!--link 第一スライス1 to 第一ネットワーク_5Gネットワーク相当--><path d="M598.08,101.685 C609.313,135.299 631.319,201.147 644.736,241.295 " fill="none" id="第一スライス1-第一ネットワーク_5Gネットワーク相当" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="648.929,253.841,650.8213,246.8826,645.126,242.4596,643.2337,249.418,648.929,253.841" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 第一スライス2 to 第一ネットワーク_5Gネットワーク相当--><path d="M778.969,101.685 C754.756,135.811 706.973,203.158 678.627,243.109 " fill="none" id="第一スライス2-第一ネットワーク_5Gネットワーク相当" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="671.013,253.841,677.747,251.2616,677.956,244.0535,671.222,246.6329,671.013,253.841" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 第一ネットワーク_5Gネットワーク相当 to 第二送信部--><path d="M656,298.059 C656,343.084 656,448.608 656,497.842 " fill="none" id="第一ネットワーク_5Gネットワーク相当-第二送信部" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="656,502.994,660,493.994,656,497.994,652,493.994,656,502.994" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="86" x="659" y="381.9385">I:第一特定情報</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="90" x="657" y="394.9385">R:第三特定情報</text><!--link 第二送信部 to 第二格納部--><path d="M711.133,525 C748.488,525 798.425,525 839.991,525 C860.774,525 879.4643,525 893.4426,525 C900.4318,525 906.243,525 910.5489,525 C910.6834,525 910.8165,525 910.9481,525 " fill="none" id="第二送信部-第二格納部" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="910.9481,525,901.9481,521,905.9481,525,901.9481,529,910.9481,525" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="86" x="771.82" y="506.4385">I:第一特定情報</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="171" x="729.32" y="519.4385">R:第三特定情報,第二特定情報</text><!--link 第二スライス1 to 携帯端末--><path d="M325,106.723 C325,145.672 325,218.053 325,253.841 " fill="none" id="第二スライス1-携帯端末" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="325,101.685,321,110.685,325,106.685,329,110.685,325,101.685" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="153" x="326" y="145.9385">ネットワークスライスアクセス</text><!--link 第二特定情報 to 第三特定情報--><!--link 第二特定情報 to 第二第三情報の対応付け--><!--
+@startuml
+skinparam componentStyle uml2
+
+component 携帯端末
+component 第一ネットワーク_5Gネットワーク相当
+component ネットワークスライス1 as 第一スライス1
+component ネットワークスライスN as 第一スライス2
+component 第一ノード(UDF相当) {
+  component 第一送信部
+  component 第一格納部 {
+    database 第一特定情報
+  }
+}
+component 第二ネットワーク(LTEネットワーク相当) {
+  component ネットワークスライス1 as 第二スライス1
+  component ネットワークスライスN as 第二スライス2
+}
+component 第二ノード(NSSF相当) {
+  component 第二送信部
+  component 第二格納部 {
+    database 第二特定情報
+    database 第三特定情報
+    database 第二第三情報の対応付け
+  }
+}
+
+
+携帯端末 -> 第一ネットワーク_5Gネットワーク相当 : ネットワーク接続処理\nR:第一第三特定情報
+第一ネットワーク_5Gネットワーク相当 -ri-> 第一送信部 : 第一特定情報取得
+第一送信部 -ri-> 第一格納部 : 第一特定情報取得
+第一ネットワーク_5Gネットワーク相当 *-up- 第一スライス1
+第一ネットワーク_5Gネットワーク相当 *-up- 第一スライス2
+第一ネットワーク_5Gネットワーク相当 -do-> 第二送信部 : I:第一特定情報\nR:第三特定情報
+第二送信部 -ri-> 第二格納部 : I:第一特定情報\nR:第三特定情報,第二特定情報
+携帯端末 -up-> 第二スライス1 : ネットワークスライスアクセス
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(MIT source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_212-8u212-b03-0ubuntu1.16.04.1-b03
+Operating System: Linux
+OS Version: 4.4.0-154-generic
+Default Encoding: UTF-8
+Language: ja
+Country: JP
+--></g></svg></p><p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="435px" preserveAspectRatio="none" style="width:564px;height:435px;" version="1.1" viewBox="0 0 564 435" width="564px" zoomAndPan="magnify"><defs><filter height="300%" id="f5wl94zgevye6" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><rect fill="#FFFFFF" filter="url(#f5wl94zgevye6)" height="341" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="55" y="46"></rect><rect fill="#FFFFFF" filter="url(#f5wl94zgevye6)" height="290" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="159.5" y="46"></rect><rect fill="#FFFFFF" filter="url(#f5wl94zgevye6)" height="71" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="271.5" y="117"></rect><rect fill="#FFFFFF" filter="url(#f5wl94zgevye6)" height="71" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="369.5" y="244"></rect><rect fill="#FFFFFF" filter="url(#f5wl94zgevye6)" height="16" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="481" y="372"></rect><rect fill="#FFFFFF" filter="url(#f5wl94zgevye6)" height="29" style="stroke: #000000; stroke-width: 2.0;" width="219" x="13" y="53"></rect><rect fill="#FFFFFF" filter="url(#f5wl94zgevye6)" height="100" style="stroke: #000000; stroke-width: 2.0;" width="254" x="97" y="96"></rect><rect fill="#FFFFFF" filter="url(#f5wl94zgevye6)" height="113" style="stroke: #000000; stroke-width: 2.0;" width="361" x="97" y="210"></rect><rect fill="#FFFFFF" filter="url(#f5wl94zgevye6)" height="29" style="stroke: #000000; stroke-width: 2.0;" width="540.5" x="13" y="351"></rect><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="60" x2="60" y1="36" y2="397"></line><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="164" x2="164" y1="36" y2="397"></line><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="276.5" x2="276.5" y1="36" y2="397"></line><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="374.5" x2="374.5" y1="36" y2="397"></line><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="485.5" x2="485.5" y1="36" y2="397"></line><rect fill="#FEFECE" filter="url(#f5wl94zgevye6)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="70" x="23" y="3"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="30" y="22.3184">携帯端末</text><rect fill="#FEFECE" filter="url(#f5wl94zgevye6)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="70" x="23" y="396"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="30" y="415.3184">携帯端末</text><rect fill="#FEFECE" filter="url(#f5wl94zgevye6)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="111" x="107" y="3"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="97" x="114" y="22.3184">第一ネットワーク</text><rect fill="#FEFECE" filter="url(#f5wl94zgevye6)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="111" x="107" y="396"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="97" x="114" y="415.3184">第一ネットワーク</text><rect fill="#FEFECE" filter="url(#f5wl94zgevye6)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="84" x="232.5" y="3"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="239.5" y="22.3184">第一送信部</text><rect fill="#FEFECE" filter="url(#f5wl94zgevye6)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="84" x="232.5" y="396"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="239.5" y="415.3184">第一送信部</text><rect fill="#FEFECE" filter="url(#f5wl94zgevye6)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="84" x="330.5" y="3"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="337.5" y="22.3184">第二送信部</text><rect fill="#FEFECE" filter="url(#f5wl94zgevye6)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="84" x="330.5" y="396"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="337.5" y="415.3184">第二送信部</text><rect fill="#FEFECE" filter="url(#f5wl94zgevye6)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="111" x="428.5" y="3"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="97" x="435.5" y="22.3184">第二ネットワーク</text><rect fill="#FEFECE" filter="url(#f5wl94zgevye6)" height="28" style="stroke: #A80036; stroke-width: 1.5;" width="111" x="428.5" y="396"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="97" x="435.5" y="415.3184">第二ネットワーク</text><rect fill="#FFFFFF" filter="url(#f5wl94zgevye6)" height="341" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="55" y="46"></rect><rect fill="#FFFFFF" filter="url(#f5wl94zgevye6)" height="290" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="159.5" y="46"></rect><rect fill="#FFFFFF" filter="url(#f5wl94zgevye6)" height="71" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="271.5" y="117"></rect><rect fill="#FFFFFF" filter="url(#f5wl94zgevye6)" height="71" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="369.5" y="244"></rect><rect fill="#FFFFFF" filter="url(#f5wl94zgevye6)" height="16" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="481" y="372"></rect><path d="M13,53 L184,53 L184,58 L174,68 L13,68 L13,53 " fill="#EEEEEE" style="stroke: #000000; stroke-width: 1.0;"></path><rect fill="none" height="29" style="stroke: #000000; stroke-width: 2.0;" width="219" x="13" y="53"></rect><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="126" x="28" y="65.4385">第一アクセスステップ</text><polygon fill="#A80036" points="147.5,70,157.5,74,147.5,78,151.5,74" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.0;" x1="65" x2="153.5" y1="74" y2="74"></line><path d="M97,96 L247,96 L247,101 L237,111 L97,111 L97,96 " fill="#EEEEEE" style="stroke: #000000; stroke-width: 1.0;"></path><rect fill="none" height="100" style="stroke: #000000; stroke-width: 2.0;" width="254" x="97" y="96"></rect><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="105" x="112" y="108.4385">第一送信ステップ</text><polygon fill="#A80036" points="259.5,113,269.5,117,259.5,121,263.5,117" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.0;" x1="169.5" x2="265.5" y1="117" y2="117"></line><rect fill="#FFFFFF" filter="url(#f5wl94zgevye6)" height="34" style="stroke: #A80036; stroke-width: 1.0;" width="130" x="211" y="130"></rect><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="113" x="215" y="145.4385">当該端末に対応する</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="122" x="215" y="158.4385">第一特定情報を決定。</text><polygon fill="#A80036" points="180.5,184,170.5,188,180.5,192,176.5,188" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="174.5" x2="275.5" y1="188" y2="188"></line><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="186.5" y="184.4385">第一特定情報</text><path d="M97,210 L247,210 L247,215 L237,225 L97,225 L97,210 " fill="#EEEEEE" style="stroke: #000000; stroke-width: 1.0;"></path><rect fill="none" height="113" style="stroke: #000000; stroke-width: 2.0;" width="361" x="97" y="210"></rect><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="105" x="112" y="222.4385">第二送信ステップ</text><polygon fill="#A80036" points="357.5,240,367.5,244,357.5,248,361.5,244" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.0;" x1="169.5" x2="363.5" y1="244" y2="244"></line><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="176.5" y="240.4385">第一特定情報</text><rect fill="#FFFFFF" filter="url(#f5wl94zgevye6)" height="34" style="stroke: #A80036; stroke-width: 1.0;" width="147" x="301" y="257"></rect><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="139" x="305" y="272.4385">第一特定情報に対応する</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="122" x="305" y="285.4385">第三特定情報を決定。</text><polygon fill="#A80036" points="180.5,311,170.5,315,180.5,319,176.5,315" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="174.5" x2="373.5" y1="315" y2="315"></line><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="159" x="186.5" y="311.4385">第二特定情報,第三特定情報</text><polygon fill="#A80036" points="76,332,66,336,76,340,72,336" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="70" x2="163.5" y1="336" y2="336"></line><path d="M13,351 L184,351 L184,356 L174,366 L13,366 L13,351 " fill="#EEEEEE" style="stroke: #000000; stroke-width: 1.0;"></path><rect fill="none" height="29" style="stroke: #000000; stroke-width: 2.0;" width="540.5" x="13" y="351"></rect><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="126" x="28" y="363.4385">第二アクセスステップ</text><polygon fill="#A80036" points="469,368,479,372,469,376,473,372" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.0;" x1="65" x2="475" y1="372" y2="372"></line><!--
+@startuml
+skinparam componentStyle uml2
+group 第一アクセスステップ
+activate 携帯端末
+  携帯端末 -> 第一ネットワーク
+  end
+  activate 第一ネットワーク
+    group 第一送信ステップ
+    第一ネットワーク->第一送信部
+    activate 第一送信部
+      rnote over 第一送信部 #white
+        当該端末に対応する
+        第一特定情報を決定。
+      end rnote
+      第一ネットワーク<- -第一送信部 : 第一特定情報
+    deactivate 第一送信部
+    end
+    group 第二送信ステップ
+    第一ネットワーク->第二送信部 : 第一特定情報
+    activate 第二送信部
+      rnote over 第二送信部 #white
+        第一特定情報に対応する
+        第三特定情報を決定。
+      end rnote
+      第一ネットワーク<- -第二送信部 : 第二特定情報,第三特定情報
+    deactivate 第二送信部
+    end
+    携帯端末 <- - 第一ネットワーク
+  deactivate 第一ネットワーク
+  group 第二アクセスステップ
+  携帯端末->第二ネットワーク
+  activate 第二ネットワーク
+  end
+deactivate 携帯端末
+
+@enduml
+
+PlantUML version 1.2019.06(Sat May 25 02:10:25 JST 2019)
+(MIT source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_212-8u212-b03-0ubuntu1.16.04.1-b03
+Operating System: Linux
+OS Version: 4.4.0-154-generic
+Default Encoding: UTF-8
+Language: ja
+Country: JP
+--></g></svg></p><table>
+<thead>
+<tr>
+<th>情報名</th>
+<th>概要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一特定情報</td>
+<td>端末毎に使用が可能な一つのスライスを特定する情報。 5GでのS-NSSAIにあたる。</td>
+</tr>
+<tr>
+<td>第二特定情報</td>
+<td>第一ネットワークのスライスのうち一つのスライスを特定するための情報。5GでのS-NSSAIにあたる。</td>
+</tr>
+<tr>
+<td>第三特定情報</td>
+<td>第二ネットワークに含まれるスライスを特定するための情報。 DCN-IDにあたる。</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  </body></html>
